@@ -25,6 +25,15 @@ install_3proxy() {
     cd $WORKDIR
 }
 
+yum install -y gcc
+yum install -y net-tools
+yum install -y bsdtar
+yum install -y zip
+yum install -y firewalld
+yum install -y wget
+yum install -y curl
+yum install -y nano
+
 gen_3proxy() {
     cat <<EOF
 daemon
