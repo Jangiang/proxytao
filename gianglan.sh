@@ -114,7 +114,7 @@ COUNT=300  # Set the number of proxies you want
 echo "$COUNT"
 #read COUNT
 
-FIRST_PORT=20000
+FIRST_PORT=10000
 LAST_PORT=$(($FIRST_PORT + $COUNT))
 
 gen_data >$WORKDIR/data.txt
