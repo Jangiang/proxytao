@@ -46,8 +46,6 @@ flush
 
 #users $(awk -F "/" 'BEGIN{ORS="";} {print $1 ":CL:" $2 " "}' ${WORKDATA})
 
-allow *
-
 $(awk -F "/" '{print "#auth strong\n" \
 "#allow " $1 "\n" \
 "socks -p" $4 " -e"$3 -6"\n" \
