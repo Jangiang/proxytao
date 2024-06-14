@@ -48,8 +48,7 @@ flush
 
 $(awk -F "/" '{print "#auth strong\n" \
 "#allow " $1 "\n" \
-"socks -p" $4 " -e"$3" "-6"\n" \
-"socks -p" $4 " -e"$5" "-6"\n" \
+"socks -n -a -p" $4 " -i" $3 " -e"$5"\n" \
 "flush\n"}' ${WORKDATA})
 EOF
 }
