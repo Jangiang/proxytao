@@ -25,13 +25,13 @@ install_3proxy() {
     cd $WORKDIR
 }
 
-yum install -y gcc
-yum install -y net-tools
-yum install -y bsdtar
-yum install -y zip
-yum install -y firewalld
-yum install -y curl
-yum install -y nano
+yum install -y gcc -y
+yum install -y net-tools -y
+yum install -y bsdtar -y
+yum install -y zip -y
+yum install -y firewalld -y
+yum install -y curl -y
+yum install -y nano -y
 
 gen_3proxy() {
     cat <<EOF
@@ -47,10 +47,11 @@ flush
 #users $(awk -F "/" 'BEGIN{ORS="";} {print $1 ":CL:" $2 " "}' ${WORKDATA})
 
 allow *
-sock -p" $4 " -i" $3 " -e"$5"\n" \
 
 $(awk -F "/" '{print "#auth strong\n" \
-"sock -6 -n -a -p" $4 " -i" $3 " -e"$5"\n" \
+"#allow " $1 "\n" \
+"socks -p" $4 " -e"$3 -6"\n" \
+"socks -p" $4 " -e"$5 -6"\n" \
 "flush\n"}' ${WORKDATA})
 EOF
 }
